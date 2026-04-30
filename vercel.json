@@ -1,5 +1,3 @@
 {
-  "framework": "html",
-  "buildCommand": "",
-  "outputDirectory": "."
+  "buildCommand": ""
 }
