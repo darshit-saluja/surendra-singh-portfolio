@@ -1,400 +1,526 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Surendra Singh — Insurance Advisor & Agent Mentor</title>
-  <meta name="description" content="15+ years of insurance expertise. Get the right coverage or build a career as an agent under direct mentorship." />
+  <title>Surendra Singh — बीमा सलाहकार और एजेंट मेंटर</title>
+  <meta name="description" content="15+ साल की बीमा विशेषज्ञता। सही बीमा लें या मेरे मार्गदर्शन में एजेंट बनें।" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Noto+Serif+Devanagari:wght@400;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
+    :root {
+      --paper:       #F7F3EE;
+      --paper-alt:   #F0EBE3;
+      --ink:         #131210;
+      --ink-soft:    #5C5A55;
+      --ink-muted:   rgba(19,18,16,0.1);
+      --ember:       #C94F1B;
+      --ember-tint:  #FAE8DF;
+      --dark-bg:     #131210;
+      --dark-text:   #F7F3EE;
+      --white:       #FFFFFF;
+    }
+
     body {
-      background: #0D0F1A;
-      color: #F0EDE8;
-      font-family: 'Outfit', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Bricolage Grotesque', sans-serif;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    .font-display { font-family: 'Playfair Display', serif; }
 
-    /* Grain */
-    .grain {
-      position: fixed; inset: 0; z-index: 9998; pointer-events: none;
-      opacity: 0.038;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    .font-hindi { font-family: 'Noto Serif Devanagari', serif; }
+    .font-mono  { font-family: 'IBM Plex Mono', monospace; }
+
+    /* ── NAV ── */
+    #nav {
+      transition: border-color 0.3s, background 0.3s;
+      border-bottom: 2px solid transparent;
     }
-
-    /* Buttons */
-    .btn-gold {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: #C9A84C; color: #0D0F1A; font-weight: 600;
-      font-family: 'Outfit', sans-serif; border-radius: 9999px;
-      text-decoration: none; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(201,168,76,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
-      transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1);
-    }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,0.52), inset 0 1px 0 rgba(255,255,255,0.18); }
-    .btn-gold:active { transform: translateY(0); box-shadow: 0 2px 10px rgba(201,168,76,0.25); }
-    .btn-gold:focus-visible { outline: 2px solid #C9A84C; outline-offset: 4px; }
-
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      border: 1.5px solid rgba(201,168,76,0.5); color: #C9A84C;
-      font-family: 'Outfit', sans-serif; border-radius: 9999px;
-      text-decoration: none; cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), background 0.2s, border-color 0.2s;
-    }
-    .btn-ghost:hover { background: rgba(201,168,76,0.09); transform: translateY(-2px); border-color: rgba(201,168,76,0.85); }
-    .btn-ghost:active { transform: translateY(0); }
-    .btn-ghost:focus-visible { outline: 2px solid #C9A84C; outline-offset: 4px; }
-
-    /* Nav */
-    #nav { transition: background 0.35s, border-color 0.35s; }
     #nav.scrolled {
-      background: rgba(13,15,26,0.94) !important;
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(201,168,76,0.13);
+      background: rgba(247,243,238,0.96) !important;
+      backdrop-filter: blur(12px);
+      border-bottom-color: var(--ember);
     }
 
-    /* Animations */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0);    }
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--ember); color: #fff;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 600; font-size: 0.875rem;
+      padding: 0.75rem 1.625rem;
+      border-radius: 6px; border: 2px solid var(--ember);
+      text-decoration: none; cursor: pointer;
+      position: relative; overflow: hidden;
+      transition: color 0.25s;
     }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.93); }
-      to   { opacity: 1; transform: scale(1);    }
+    .btn-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: #a03a10;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
     }
-    .a1 { animation: fadeUp   0.85s cubic-bezier(0.16,1,0.3,1) 0.05s both; }
-    .a2 { animation: fadeUp   0.85s cubic-bezier(0.16,1,0.3,1) 0.20s both; }
-    .a3 { animation: fadeUp   0.85s cubic-bezier(0.16,1,0.3,1) 0.35s both; }
-    .a4 { animation: fadeUp   0.85s cubic-bezier(0.16,1,0.3,1) 0.50s both; }
-    .a5 { animation: fadeIn   1.20s ease                        0.65s both; }
-    .a6 { animation: scaleIn  1.00s cubic-bezier(0.16,1,0.3,1) 0.25s both; }
+    .btn-primary:hover::before { transform: scaleX(1); }
+    .btn-primary > * { position: relative; z-index: 1; }
+    .btn-primary > span, .btn-primary > svg { position: relative; z-index: 1; }
+    .btn-primary:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
 
-    /* Cards */
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--ember);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 600; font-size: 0.875rem;
+      padding: 0.75rem 1.625rem;
+      border-radius: 6px; border: 2px solid var(--ember);
+      text-decoration: none; cursor: pointer;
+      position: relative; overflow: hidden;
+      transition: color 0.25s;
+    }
+    .btn-outline::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--ember);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .btn-outline:hover { color: #fff; }
+    .btn-outline:hover::before { transform: scaleX(1); }
+    .btn-outline > span, .btn-outline > svg { position: relative; z-index: 1; }
+    .btn-outline:focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
+
+    /* ── SECTION MARKER ── */
+    .section-mark {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.08em;
+      color: var(--ember); text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .section-mark::after {
+      content: ''; flex: 1; max-width: 80px; height: 1px;
+      background: var(--ember); opacity: 0.5;
+    }
+
+    /* ── CARDS ── */
     .card {
-      background: #141628; border: 1px solid rgba(201,168,76,0.12);
-      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, box-shadow 0.3s;
+      background: var(--white);
+      border: 1px solid var(--ink-muted);
+      border-left: 3px solid var(--ember);
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(19,18,16,0.06);
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s, border-left-color 0.2s;
     }
     .card:hover {
-      transform: translateY(-5px); border-color: rgba(201,168,76,0.35);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 0 40px rgba(201,168,76,0.06);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(19,18,16,0.1);
     }
+
     .path-card {
-      background: #141628; border: 1px solid rgba(201,168,76,0.14);
+      background: var(--white);
+      border: 1px solid var(--ink-muted);
+      border-top: 4px solid var(--ember);
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(19,18,16,0.06);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s;
       position: relative; overflow: hidden;
-      transition: transform 0.38s cubic-bezier(0.16,1,0.3,1), border-color 0.38s, box-shadow 0.38s;
     }
-    .path-card::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
-      background: radial-gradient(ellipse at 25% 20%, rgba(201,168,76,0.08) 0%, transparent 65%);
-      transition: opacity 0.4s;
-    }
-    .path-card:hover::before { opacity: 1; }
     .path-card:hover {
-      transform: translateY(-8px); border-color: rgba(201,168,76,0.48);
-      box-shadow: 0 28px 70px rgba(0,0,0,0.5), 0 0 50px rgba(201,168,76,0.07);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(19,18,16,0.12);
     }
 
-    /* Portrait */
-    .portrait-frame { position: relative; border-radius: 1rem; overflow: hidden; }
-    .portrait-frame::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 3;
-      border: 1px solid rgba(201,168,76,0.32); border-radius: inherit;
+    /* ── PORTRAIT CORNER BRACKETS ── */
+    .portrait-wrap {
+      position: relative; display: inline-block; width: 100%;
     }
-
-    /* Tag */
-    .tag {
-      font-family: 'Outfit', sans-serif; font-size: 0.67rem;
-      letter-spacing: 0.2em; text-transform: uppercase; color: #C9A84C;
+    .portrait-wrap img {
+      display: block; width: 100%;
+      object-fit: cover;
     }
+    .corner { position: absolute; width: 36px; height: 36px; }
+    .corner-tl { top: -10px; left: -10px;
+      border-top: 2px solid var(--ember); border-left: 2px solid var(--ember); }
+    .corner-tr { top: -10px; right: -10px;
+      border-top: 2px solid var(--ember); border-right: 2px solid var(--ember); }
+    .corner-bl { bottom: -10px; left: -10px;
+      border-bottom: 2px solid var(--ember); border-left: 2px solid var(--ember); }
+    .corner-br { bottom: -10px; right: -10px;
+      border-bottom: 2px solid var(--ember); border-right: 2px solid var(--ember); }
 
-    /* Divider */
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.38), transparent); }
+    /* ── DIVIDER ── */
+    .rule { height: 1px; background: var(--ink-muted); }
 
-    /* Icon box */
-    .icon-box {
-      width: 48px; height: 48px; border-radius: 0.75rem; flex-shrink: 0;
-      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
-      display: flex; align-items: center; justify-content: center;
+    /* ── FEATURE ROW CARD ── */
+    .feature-row {
+      border-left: 2px solid rgba(201,79,27,0.25);
+      padding-left: 1.25rem;
+      transition: border-left-color 0.2s;
     }
+    .feature-row:hover { border-left-color: var(--ember); }
 
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #0D0F1A; }
-    ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.22); border-radius: 3px; }
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateX(-22px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.in-view { opacity: 1; transform: translateX(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    /* ── HERO LOAD ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .a1 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.05s both; }
+    .a2 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s  both; }
+    .a3 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.35s both; }
+    .a4 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s  both; }
+    .a5 { animation: fadeIn 1s ease 0.6s both; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--paper); }
+    ::-webkit-scrollbar-thumb { background: rgba(201,79,27,0.3); border-radius: 2px; }
   </style>
 </head>
 <body>
 
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- ===== NAV ===== -->
-  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5">
+  <!-- NAV -->
+  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2.5 group" style="text-decoration:none">
-        <span class="font-display text-xl text-[#F0EDE8] tracking-tight" style="transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#F0EDE8'">Surendra Singh</span>
-        <span class="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" aria-hidden="true"></span>
+      <a href="index.html" style="text-decoration:none">
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);letter-spacing:-0.02em;transition:color 0.2s"
+          onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink)'">Surendra Singh</span>
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="get-insurance.html" class="text-sm text-[#7A7A8C] hover:text-[#F0EDE8] tracking-wide" style="text-decoration:none;transition:color 0.2s;font-family:'Outfit',sans-serif">Get Insurance</a>
-        <a href="earn-with-insurance.html" class="text-sm text-[#7A7A8C] hover:text-[#F0EDE8] tracking-wide" style="text-decoration:none;transition:color 0.2s;font-family:'Outfit',sans-serif">Become an Agent</a>
-        <a href="get-insurance.html" class="btn-gold text-sm px-5 py-2.5" style="text-decoration:none">Get Started</a>
+        <a href="get-insurance.html" style="font-size:0.875rem;color:var(--ink-soft);text-decoration:none;transition:color 0.2s;font-family:'Bricolage Grotesque',sans-serif;font-weight:500"
+          onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink-soft)'">Get Insurance</a>
+        <a href="earn-with-insurance.html" style="font-size:0.875rem;color:var(--ink-soft);text-decoration:none;transition:color 0.2s;font-family:'Bricolage Grotesque',sans-serif;font-weight:500"
+          onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink-soft)'">Become an Agent</a>
+        <a href="get-insurance.html" class="btn-primary" style="text-decoration:none;padding:0.6rem 1.25rem">
+          <span>Get Started</span>
+        </a>
       </div>
-      <button id="menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false" style="color:#F0EDE8;background:none;border:none;cursor:pointer;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#F0EDE8'">
-        <svg id="icon-open"  width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="2" y1="6"  x2="22" y2="6" /><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="18" x2="22" y2="18"/></svg>
+      <button id="menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false"
+        style="color:var(--ink);background:none;border:none;cursor:pointer;transition:color 0.2s"
+        onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink)'">
+        <svg id="icon-open" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="2" y1="6" x2="22" y2="6"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="18" x2="22" y2="18"/></svg>
         <svg id="icon-close" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" class="hidden"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden px-0 pt-6 pb-5 mt-4 border-t" style="border-color:rgba(201,168,76,0.12)">
+    <div id="mobile-menu" class="hidden md:hidden px-0 pt-5 pb-4 mt-3 border-t" style="border-color:var(--ink-muted)">
       <div class="flex flex-col gap-5">
-        <a href="get-insurance.html" class="text-[#F0EDE8] text-lg" style="text-decoration:none;font-family:'Outfit',sans-serif">Get Insurance</a>
-        <a href="earn-with-insurance.html" class="text-[#F0EDE8] text-lg" style="text-decoration:none;font-family:'Outfit',sans-serif">Become an Agent</a>
-        <a href="get-insurance.html" class="btn-gold text-sm px-5 py-3 mt-1 justify-center" style="text-decoration:none">Get Started</a>
+        <a href="get-insurance.html" style="font-size:1.05rem;color:var(--ink);text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:500">Get Insurance</a>
+        <a href="earn-with-insurance.html" style="font-size:1.05rem;color:var(--ink);text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:500">Become an Agent</a>
+        <a href="get-insurance.html" class="btn-primary" style="text-decoration:none;justify-content:center">
+          <span>Get Started</span>
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <section class="relative min-h-screen flex items-center pt-28 pb-20 px-6 md:px-12 overflow-hidden">
-    <!-- Background glows -->
-    <div aria-hidden="true" style="position:absolute;top:-200px;left:-250px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.09) 0%,transparent 70%);pointer-events:none"></div>
-    <div aria-hidden="true" style="position:absolute;bottom:-150px;right:-120px;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%);pointer-events:none"></div>
 
-    <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <!-- Text -->
-      <div>
-        <div class="tag a1 mb-5">Insurance Advisor &amp; Agent Mentor</div>
-        <h1 class="font-display a2 mb-6" style="font-size:clamp(2.4rem,5vw,4rem);line-height:1.1;letter-spacing:-0.025em;color:#F0EDE8">
-          15 Years of Trust.<br>
-          <em style="color:#C9A84C;font-style:italic">One Name</em> You<br>
-          Can Rely On.
+    <!-- Giant watermark "15" -->
+    <div aria-hidden="true" style="
+      position:absolute; top:-8%; right:-5%;
+      font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+      font-size:38vw; line-height:1; color:var(--ink); opacity:0.035;
+      user-select:none; pointer-events:none; letter-spacing:-0.04em;
+      z-index:0;">15</div>
+
+    <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-11 gap-10 lg:gap-16 items-center relative z-10">
+
+      <!-- Text column (6/11) -->
+      <div class="lg:col-span-6">
+        <div class="section-mark a1">§01 — बीमा सलाहकार और एजेंट मेंटर</div>
+        <h1 class="font-hindi a2" style="font-size:clamp(2.6rem,5.2vw,4.4rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:var(--ink);margin-bottom:1.5rem">
+          15 साल का भरोसा।<br>
+          <span style="color:var(--ember)">एक नाम</span> जो<br>
+          आपके साथ है।
         </h1>
-        <p class="a3 mb-10" style="color:#7A7A8C;font-size:1.05rem;line-height:1.8;max-width:460px">
-          Whether you're protecting what matters most or building a career that grows with you — you've come to the right person.
+        <p class="font-hindi a3" style="color:var(--ink-soft);font-size:1rem;line-height:1.9;max-width:440px;margin-bottom:2.25rem;font-weight:400">
+          चाहे आप अपने परिवार को सुरक्षित करना चाहते हों या एक सफल करियर बनाना — आप सही जगह आए हैं।
         </p>
-        <div class="a4 flex flex-wrap gap-4">
-          <a href="get-insurance.html" class="btn-gold px-7 py-3.5 text-sm">
-            Protect My Future
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <div class="a4 flex flex-wrap gap-3 mb-12">
+          <a href="get-insurance.html" class="btn-primary" style="text-decoration:none">
+            <span>Protect My Future</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="position:relative;z-index:1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="earn-with-insurance.html" class="btn-ghost px-7 py-3.5 text-sm">
-            Earn with Insurance
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <a href="earn-with-insurance.html" class="btn-outline" style="text-decoration:none">
+            <span>Earn with Insurance</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="position:relative;z-index:1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
-        <div class="a5 flex flex-wrap gap-x-8 gap-y-3 mt-12 pt-10" style="border-top:1px solid rgba(201,168,76,0.1)">
+
+        <!-- Inline stats -->
+        <div class="a5 flex flex-wrap gap-8 pt-8" style="border-top:1px solid var(--ink-muted)">
           <div>
-            <div class="font-display text-[#C9A84C]" style="font-size:1.75rem;font-weight:600;line-height:1">15+</div>
-            <div style="color:#7A7A8C;font-size:0.8rem;margin-top:4px">Years Experience</div>
+            <div class="font-mono" style="font-size:2rem;font-weight:500;line-height:1;color:var(--ember)"><span class="counter" data-target="15">0</span>+</div>
+            <div class="font-hindi" style="color:var(--ink-soft);font-size:0.78rem;margin-top:5px;font-weight:400">साल का अनुभव</div>
           </div>
           <div>
-            <div class="font-display text-[#C9A84C]" style="font-size:1.75rem;font-weight:600;line-height:1">500+</div>
-            <div style="color:#7A7A8C;font-size:0.8rem;margin-top:4px">Families Protected</div>
+            <div class="font-mono" style="font-size:2rem;font-weight:500;line-height:1;color:var(--ember)"><span class="counter" data-target="500">0</span>+</div>
+            <div class="font-hindi" style="color:var(--ink-soft);font-size:0.78rem;margin-top:5px;font-weight:400">परिवारों की सुरक्षा</div>
           </div>
           <div>
-            <div class="font-display text-[#C9A84C]" style="font-size:1.75rem;font-weight:600;line-height:1">10+</div>
-            <div style="color:#7A7A8C;font-size:0.8rem;margin-top:4px">Years Mentoring Agents</div>
+            <div class="font-mono" style="font-size:2rem;font-weight:500;line-height:1;color:var(--ember)"><span class="counter" data-target="10">0</span>+</div>
+            <div class="font-hindi" style="color:var(--ink-soft);font-size:0.78rem;margin-top:5px;font-weight:400">साल की मेंटरशिप</div>
           </div>
         </div>
       </div>
-      <!-- Portrait -->
-      <div class="flex justify-center lg:justify-end a6">
-        <div class="portrait-frame" style="max-width:420px;width:100%">
-          <img src="surendra-portrait.jpeg" alt="Surendra Singh" style="width:100%;display:block;object-fit:cover;aspect-ratio:420/520" />
-          <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(13,15,26,0.55) 0%,transparent 50%);z-index:2;pointer-events:none"></div>
-          <!-- Corner accents -->
-          <div aria-hidden="true" style="position:absolute;top:-10px;right:-10px;width:72px;height:72px;border-top:1.5px solid rgba(201,168,76,0.55);border-right:1.5px solid rgba(201,168,76,0.55);border-radius:0 6px 0 0;pointer-events:none"></div>
-          <div aria-hidden="true" style="position:absolute;bottom:-10px;left:-10px;width:72px;height:72px;border-bottom:1.5px solid rgba(201,168,76,0.55);border-left:1.5px solid rgba(201,168,76,0.55);border-radius:0 0 0 6px;pointer-events:none"></div>
+
+      <!-- Portrait column (5/11) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end a5">
+        <div style="max-width:400px;width:100%;padding:14px">
+          <div class="portrait-wrap hero-portrait">
+            <img src="surendra-portrait.jpeg" alt="Surendra Singh"
+              style="aspect-ratio:3/4;object-fit:cover;object-position:top" />
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TRUST BAR ===== -->
-  <div class="divider"></div>
-  <section class="py-14 px-6 md:px-12">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div class="card rounded-xl p-7 text-center">
-        <div class="font-display text-[#C9A84C] mb-1.5" style="font-size:2rem;font-weight:600">15+</div>
-        <div class="text-[#F0EDE8] font-medium mb-1" style="font-size:0.95rem">Years in Insurance</div>
-        <div style="color:#7A7A8C;font-size:0.82rem">Helping families make the right coverage decisions</div>
-      </div>
-      <div class="card rounded-xl p-7 text-center">
-        <div class="font-display text-[#C9A84C] mb-1.5" style="font-size:2rem;font-weight:600">500+</div>
-        <div class="text-[#F0EDE8] font-medium mb-1" style="font-size:0.95rem">Families Protected</div>
-        <div style="color:#7A7A8C;font-size:0.82rem">Real policies, real guidance, real results</div>
-      </div>
-      <div class="card rounded-xl p-7 text-center">
-        <div class="font-display text-[#C9A84C] mb-1.5" style="font-size:1.1rem;font-weight:600;line-height:1.4">Bajaj Life Insurance<br>ICICI Lombard · Policybazaar</div>
-        <div class="text-[#F0EDE8] font-medium mb-1" style="font-size:0.95rem">Trusted Partnerships</div>
-        <div style="color:#7A7A8C;font-size:0.82rem">India's most established insurance platforms</div>
+  <!-- STATS BAR — full bleed black -->
+  <section style="background:var(--dark-bg)">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
+
+        <div class="text-center md:text-left reveal reveal-d1" style="padding:0 2rem;border-right:1px solid rgba(247,243,238,0.08)">
+          <div class="font-mono" style="font-size:clamp(2.8rem,5vw,4rem);font-weight:500;line-height:1;color:var(--ember)"><span class="counter" data-target="15">0</span>+</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:0.95rem;color:var(--dark-text);margin-top:0.6rem">साल का अनुभव</div>
+          <div class="font-hindi" style="color:rgba(247,243,238,0.45);font-size:0.8rem;margin-top:0.3rem;font-weight:400">परिवारों को सही बीमा निर्णय में मदद</div>
+        </div>
+
+        <div class="text-center reveal reveal-d2" style="padding:0 2rem;border-right:1px solid rgba(247,243,238,0.08)">
+          <div class="font-mono" style="font-size:clamp(2.8rem,5vw,4rem);font-weight:500;line-height:1;color:var(--ember)"><span class="counter" data-target="500">0</span>+</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:0.95rem;color:var(--dark-text);margin-top:0.6rem">परिवारों की सुरक्षा</div>
+          <div class="font-hindi" style="color:rgba(247,243,238,0.45);font-size:0.8rem;margin-top:0.3rem;font-weight:400">असली पॉलिसी, असली मार्गदर्शन</div>
+        </div>
+
+        <div class="text-center md:text-right reveal reveal-d3" style="padding:0 2rem">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1rem,1.5vw,1.2rem);font-weight:700;line-height:1.5;color:var(--ember)">Bajaj Life Insurance<br>ICICI Lombard · Policybazaar</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:0.95rem;color:var(--dark-text);margin-top:0.6rem">विश्वसनीय साझेदारी</div>
+          <div class="font-hindi" style="color:rgba(247,243,238,0.45);font-size:0.8rem;margin-top:0.3rem;font-weight:400">भारत के सबसे भरोसेमंद प्लेटफ़ॉर्म</div>
+        </div>
+
       </div>
     </div>
   </section>
-  <div class="divider"></div>
 
-  <!-- ===== DUAL PATH CARDS ===== -->
+  <!-- DUAL PATH -->
   <section class="py-24 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-14">
-        <div class="tag mb-4">Two Paths, One Advisor</div>
-        <h2 class="font-display text-[#F0EDE8]" style="font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.02em">What brings you here today?</h2>
+      <div class="mb-12 reveal">
+        <div class="section-mark">§02 — दो रास्ते, एक सलाहकार</div>
+        <h2 class="font-hindi" style="font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--ink);letter-spacing:-0.01em">आज आप यहाँ किस लिए आए हैं?</h2>
       </div>
+
       <div class="grid md:grid-cols-2 gap-6">
-        <!-- Get Insurance -->
-        <a href="get-insurance.html" class="path-card rounded-2xl p-8 md:p-10 block" style="text-decoration:none">
-          <div class="icon-box mb-7">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <a href="get-insurance.html" class="path-card p-8 md:p-10 block reveal reveal-d1" style="text-decoration:none">
+          <div style="width:44px;height:44px;border:1.5px solid var(--ink-muted);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1.75rem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <div class="tag mb-3">For Individuals &amp; Families</div>
-          <h3 class="font-display text-[#F0EDE8] mb-4" style="font-size:1.75rem;letter-spacing:-0.02em">Get Insurance</h3>
-          <p style="color:#7A7A8C;font-size:0.94rem;line-height:1.75;margin-bottom:2rem">
-            Find the right health, life, or general insurance plan for you and your family. Expert guidance with zero jargon — I compare the best options so you don't have to.
+          <div class="font-hindi" style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ember);font-family:'IBM Plex Mono',monospace;margin-bottom:0.6rem">व्यक्तियों और परिवारों के लिए</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.7rem;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.9rem">Get Insurance</h3>
+          <p class="font-hindi" style="color:var(--ink-soft);font-size:0.93rem;line-height:1.85;margin-bottom:1.75rem;font-weight:400">
+            सही स्वास्थ्य, जीवन, या सामान्य बीमा योजना खोजें। बिना किसी जटिलता के — मैं आपके लिए सर्वोत्तम विकल्पों की तुलना करता हूँ।
           </p>
-          <div class="flex items-center gap-2 font-medium text-sm" style="color:#C9A84C">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:0.85rem;color:var(--ember);display:flex;align-items:center;gap:0.4rem">
             Explore your options
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </div>
         </a>
-        <!-- Earn with Insurance -->
-        <a href="earn-with-insurance.html" class="path-card rounded-2xl p-8 md:p-10 block" style="text-decoration:none">
-          <div class="icon-box mb-7">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+
+        <a href="earn-with-insurance.html" class="path-card p-8 md:p-10 block reveal reveal-d2" style="text-decoration:none">
+          <div style="width:44px;height:44px;border:1.5px solid var(--ink-muted);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1.75rem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ember)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
-          <div class="tag mb-3">For Aspiring Agents</div>
-          <h3 class="font-display text-[#F0EDE8] mb-4" style="font-size:1.75rem;letter-spacing:-0.02em">Earn with Insurance</h3>
-          <p style="color:#7A7A8C;font-size:0.94rem;line-height:1.75;margin-bottom:2rem">
-            Start earning on your own terms. Join Bajaj Life Insurance under my direct mentorship — structured training, genuine support, and income that compounds with your effort.
+          <div class="font-hindi" style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ember);font-family:'IBM Plex Mono',monospace;margin-bottom:0.6rem">महत्वाकांक्षी एजेंटों के लिए</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.7rem;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.9rem">Earn with Insurance</h3>
+          <p class="font-hindi" style="color:var(--ink-soft);font-size:0.93rem;line-height:1.85;margin-bottom:1.75rem;font-weight:400">
+            अपनी शर्तों पर कमाई शुरू करें। मेरे मार्गदर्शन में Bajaj Life Insurance से जुड़ें — संरचित प्रशिक्षण और वास्तविक समर्थन के साथ।
           </p>
-          <div class="flex items-center gap-2 font-medium text-sm" style="color:#C9A84C">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:0.85rem;color:var(--ember);display:flex;align-items:center;gap:0.4rem">
             Become an agent
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section class="py-24 px-6 md:px-12" style="border-top:1px solid rgba(201,168,76,0.08)">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <div class="tag mb-5">About Surendra Singh</div>
-        <h2 class="font-display text-[#F0EDE8] mb-6" style="font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-0.02em;line-height:1.2">
-          Insurance isn't a product.<br>It's a promise.
-        </h2>
-        <p style="color:#7A7A8C;font-size:0.96rem;line-height:1.85;margin-bottom:1.25rem">
-          With more than 15 years in the insurance industry and over a decade personally training agents under Bajaj Life Insurance, Surendra Singh has built a career on one simple principle: show up for people.
-        </p>
-        <p style="color:#7A7A8C;font-size:0.96rem;line-height:1.85;margin-bottom:2.5rem">
-          He handles every client and every trainee himself — no call centers, no outsourcing, no shortcuts. Whether you need the right policy or the right start in your career, you speak directly with him.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="get-insurance.html" class="btn-gold px-6 py-3 text-sm" style="text-decoration:none">Get Insurance</a>
-          <a href="earn-with-insurance.html" class="btn-ghost px-6 py-3 text-sm" style="text-decoration:none">Become an Agent</a>
+  <div class="rule mx-6 md:mx-12"></div>
+
+  <!-- ABOUT -->
+  <section class="py-24 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-11 gap-12 lg:gap-20 items-start">
+
+      <!-- Portrait column (4/11) -->
+      <div class="lg:col-span-4 reveal">
+        <div style="padding:14px;max-width:340px">
+          <div class="portrait-wrap" style="position:relative">
+            <img src="surendra-portrait.jpeg" alt="Surendra Singh"
+              style="width:100%;display:block;object-fit:cover;object-position:top;aspect-ratio:3/4" />
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+          </div>
         </div>
       </div>
-      <div class="flex flex-col gap-4">
-        <div class="card rounded-xl p-6 flex gap-5 items-start">
-          <div class="icon-box mt-0.5">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+
+      <!-- Content column (7/11) -->
+      <div class="lg:col-span-7">
+        <div class="section-mark reveal">§03 — सुरेंद्र सिंह के बारे में</div>
+
+        <h2 class="font-hindi reveal" style="font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.01em;line-height:1.25;color:var(--ink);margin-bottom:1rem">
+          बीमा कोई उत्पाद नहीं है।
+        </h2>
+        <h2 class="font-hindi reveal" style="font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.01em;line-height:1.25;color:var(--ink);margin-bottom:1.5rem">
+          यह एक <span style="color:var(--ember)">वादा</span> है।
+        </h2>
+        <!-- ember rule -->
+        <div style="width:48px;height:3px;background:var(--ember);margin-bottom:1.75rem" class="reveal"></div>
+
+        <p class="font-hindi reveal" style="color:var(--ink-soft);font-size:0.96rem;line-height:1.95;margin-bottom:1.25rem;font-weight:400">
+          15 से अधिक वर्षों के बीमा उद्योग के अनुभव और Bajaj Life Insurance के तहत एक दशक से अधिक समय तक व्यक्तिगत रूप से एजेंटों को प्रशिक्षित करने के साथ, सुरेंद्र सिंह ने एक सरल सिद्धांत पर अपना करियर बनाया है: लोगों के लिए उपस्थित रहना।
+        </p>
+        <p class="font-hindi reveal" style="color:var(--ink-soft);font-size:0.96rem;line-height:1.95;margin-bottom:2.5rem;font-weight:400">
+          वे हर ग्राहक और हर प्रशिक्षु को स्वयं संभालते हैं — कोई कॉल सेंटर नहीं, कोई आउटसोर्सिंग नहीं। चाहे आपको सही पॉलिसी चाहिए या करियर की सही शुरुआत — आप सीधे उनसे बात करते हैं।
+        </p>
+
+        <!-- Feature rows -->
+        <div class="space-y-5 mb-8">
+          <div class="feature-row reveal reveal-d1">
+            <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.3rem">15+ साल का अनुभव</div>
+            <div class="font-hindi" style="color:var(--ink-soft);font-size:0.83rem;line-height:1.7;font-weight:400">डेढ़ दशक से परिवारों की ओर से पॉलिसी, क्लेम, और बीमा की दुनिया को नेविगेट करने का अनुभव।</div>
           </div>
-          <div>
-            <div class="text-[#F0EDE8] font-medium mb-1.5" style="font-size:0.95rem">15+ Years of Experience</div>
-            <div style="color:#7A7A8C;font-size:0.84rem;line-height:1.7">A decade and a half of navigating policies, claims, and the insurance landscape on behalf of real families.</div>
+          <div class="feature-row reveal reveal-d2">
+            <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.3rem">10+ साल की एजेंट मेंटरशिप</div>
+            <div class="font-hindi" style="color:var(--ink-soft);font-size:0.83rem;line-height:1.7;font-weight:400">Bajaj Life Insurance के तहत एजेंटों को व्यक्तिगत रूप से प्रशिक्षित किया — शुरुआत से टिकाऊ करियर बनाने में मदद की।</div>
+          </div>
+          <div class="feature-row reveal reveal-d3">
+            <div style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.3rem">तीन विश्वसनीय प्लेटफ़ॉर्म</div>
+            <div class="font-hindi" style="color:var(--ink-soft);font-size:0.83rem;line-height:1.7;font-weight:400">Bajaj Life Insurance, ICICI Lombard, और Policybazaar के साथ काम करने के लिए अधिकृत।</div>
           </div>
         </div>
-        <div class="card rounded-xl p-6 flex gap-5 items-start">
-          <div class="icon-box mt-0.5">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <div class="text-[#F0EDE8] font-medium mb-1.5" style="font-size:0.95rem">Agent Mentor — 10+ Years</div>
-            <div style="color:#7A7A8C;font-size:0.84rem;line-height:1.7">Personally trained and guided insurance agents under Bajaj Life Insurance, helping them build sustainable careers from the ground up.</div>
-          </div>
-        </div>
-        <div class="card rounded-xl p-6 flex gap-5 items-start">
-          <div class="icon-box mt-0.5">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div>
-            <div class="text-[#F0EDE8] font-medium mb-1.5" style="font-size:0.95rem">Three Trusted Platforms</div>
-            <div style="color:#7A7A8C;font-size:0.84rem;line-height:1.7">Authorized to work with Bajaj Life Insurance, ICICI Lombard, and Policybazaar — giving you access to India's best coverage options.</div>
-          </div>
+
+        <div class="flex flex-wrap gap-3 reveal">
+          <a href="get-insurance.html" class="btn-primary" style="text-decoration:none">
+            <span>Get Insurance</span>
+          </a>
+          <a href="earn-with-insurance.html" class="btn-outline" style="text-decoration:none">
+            <span>Become an Agent</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer style="border-top:1px solid rgba(201,168,76,0.12);background:#0D0F1A" class="py-14 px-6 md:px-12">
+  <!-- FOOTER -->
+  <footer style="background:var(--paper-alt);border-top:1px solid var(--ink-muted)" class="py-14 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row items-center justify-between gap-10">
         <div>
-          <a href="index.html" class="flex items-center gap-2.5 mb-3" style="text-decoration:none">
-            <span class="font-display text-xl text-[#F0EDE8]">Surendra Singh</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" aria-hidden="true"></span>
+          <a href="index.html" style="text-decoration:none;display:block;margin-bottom:0.5rem">
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink)">Surendra Singh</span>
           </a>
-          <p style="color:#7A7A8C;font-size:0.85rem">Insurance Advisor &amp; Agent Mentor</p>
+          <p class="font-hindi" style="color:var(--ink-soft);font-size:0.83rem;font-weight:400">बीमा सलाहकार और एजेंट मेंटर</p>
         </div>
         <div class="flex flex-wrap gap-3 justify-center">
-          <a href="tel:+919709730079" class="btn-ghost px-5 py-2.5 text-sm" style="text-decoration:none">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1.27h3a2 2 0 0 1 2 1.72c.13.85.33 1.68.6 2.5a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.81-.81a2 2 0 0 1 2.11-.45c.82.27 1.65.48 2.5.6a2 2 0 0 1 1.72 2.03z"/></svg>
-            Call
+          <a href="tel:+919709730079" class="btn-outline" style="text-decoration:none;padding:0.6rem 1.1rem;font-size:0.8rem">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1.27h3a2 2 0 0 1 2 1.72c.13.85.33 1.68.6 2.5a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.81-.81a2 2 0 0 1 2.11-.45c.82.27 1.65.48 2.5.6a2 2 0 0 1 1.72 2.03z"/></svg>
+            <span>Call</span>
           </a>
-          <a href="mailto:sshia899@gmail.com" class="btn-ghost px-5 py-2.5 text-sm" style="text-decoration:none">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Email
+          <a href="mailto:sshia899@gmail.com" class="btn-outline" style="text-decoration:none;padding:0.6rem 1.1rem;font-size:0.8rem">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Email</span>
           </a>
-          <a href="https://wa.me/919709730079" target="_blank" rel="noopener noreferrer" class="btn-gold px-5 py-2.5 text-sm" style="text-decoration:none">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            WhatsApp
+          <a href="https://wa.me/919709730079" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration:none;padding:0.6rem 1.1rem;font-size:0.8rem">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="position:relative;z-index:1"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            <span>WhatsApp</span>
           </a>
         </div>
       </div>
-      <div class="divider my-8"></div>
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4" style="color:#7A7A8C;font-size:0.82rem">
+      <div class="rule my-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4" style="color:var(--ink-soft);font-size:0.8rem;font-family:'Bricolage Grotesque',sans-serif">
         <p>&copy; 2025 Surendra Singh. All rights reserved.</p>
         <div class="flex gap-6">
-          <a href="get-insurance.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#7A7A8C'">Get Insurance</a>
-          <a href="earn-with-insurance.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#7A7A8C'">Become an Agent</a>
+          <a href="get-insurance.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink-soft)'">Get Insurance</a>
+          <a href="earn-with-insurance.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink-soft)'">Become an Agent</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
-    // Nav scroll effect
+    // Nav scroll
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
 
-    // Mobile menu toggle
-    const btn  = document.getElementById('menu-btn');
+    // Mobile menu
+    const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    const iconOpen  = document.getElementById('icon-open');
+    const iconOpen = document.getElementById('icon-open');
     const iconClose = document.getElementById('icon-close');
     btn.addEventListener('click', () => {
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) {
-        menu.classList.add('hidden');
-        iconOpen.classList.remove('hidden');
-        iconClose.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-      } else {
-        menu.classList.remove('hidden');
-        iconOpen.classList.add('hidden');
-        iconClose.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-      }
+      const open = !menu.classList.contains('hidden');
+      if (open) { menu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
+      else { menu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
     });
+
+    // Parallax portrait
+    const portrait = document.querySelector('.hero-portrait');
+    if (portrait) {
+      window.addEventListener('scroll', () => {
+        portrait.style.transform = 'translateY(' + (window.scrollY * 0.15) + 'px)';
+      }, { passive: true });
+    }
+
+    // Scroll reveal
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Animated counters
+    function animateCounter(el, target, duration) {
+      duration = duration || 1600;
+      var start = performance.now();
+      function update(now) {
+        var t = Math.min((now - start) / duration, 1);
+        var ease = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.floor(ease * target);
+        if (t < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+    var counterObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          animateCounter(e.target, parseInt(e.target.dataset.target));
+          counterObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(function(el) { counterObs.observe(el); });
   </script>
 </body>
 </html>

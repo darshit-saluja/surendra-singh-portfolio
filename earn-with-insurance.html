@@ -1,436 +1,435 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Become an Agent — Surendra Singh</title>
-  <meta name="description" content="Build a career earning on your own terms. Join Bajaj Life Insurance under direct mentorship. No cap on income, just effort and opportunity." />
+  <meta name="description" content="एक ऐसा करियर बनाएं जो आपकी मेहनत की कीमत दे। Bajaj Life Insurance में सीधी मेंटरशिप के साथ जुड़ें।" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Noto+Serif+Devanagari:wght@400;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
+    :root {
+      --paper:      #F7F3EE;
+      --paper-alt:  #F0EBE3;
+      --ink:        #131210;
+      --ink-soft:   #5C5A55;
+      --ink-muted:  rgba(19,18,16,0.1);
+      --ember:      #C94F1B;
+      --ember-tint: #FAE8DF;
+      --dark-bg:    #131210;
+      --dark-text:  #F7F3EE;
+      --white:      #FFFFFF;
+    }
+
     body {
-      background: #0D0F1A;
-      color: #F0EDE8;
-      font-family: 'Outfit', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Bricolage Grotesque', sans-serif;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    .font-display { font-family: 'Playfair Display', serif; }
+    .font-hindi { font-family: 'Noto Serif Devanagari', serif; }
+    .font-mono  { font-family: 'IBM Plex Mono', monospace; }
 
-    .grain {
-      position: fixed; inset: 0; z-index: 9998; pointer-events: none;
-      opacity: 0.038;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    .btn-gold {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: #C9A84C; color: #0D0F1A; font-weight: 600;
-      font-family: 'Outfit', sans-serif; border-radius: 9999px;
-      text-decoration: none; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(201,168,76,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
-      transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1);
-      border: none;
-    }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,0.52), inset 0 1px 0 rgba(255,255,255,0.18); }
-    .btn-gold:active { transform: translateY(0); box-shadow: 0 2px 10px rgba(201,168,76,0.25); }
-    .btn-gold:focus-visible { outline: 2px solid #C9A84C; outline-offset: 4px; }
-
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      border: 1.5px solid rgba(201,168,76,0.5); color: #C9A84C;
-      font-family: 'Outfit', sans-serif; border-radius: 9999px;
-      text-decoration: none; cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), background 0.2s, border-color 0.2s;
-    }
-    .btn-ghost:hover { background: rgba(201,168,76,0.09); transform: translateY(-2px); border-color: rgba(201,168,76,0.85); }
-    .btn-ghost:active { transform: translateY(0); }
-    .btn-ghost:focus-visible { outline: 2px solid #C9A84C; outline-offset: 4px; }
-
-    #nav { transition: background 0.35s, border-color 0.35s; }
+    /* NAV */
+    #nav { transition: border-color 0.3s, background 0.3s; border-bottom: 2px solid transparent; }
     #nav.scrolled {
-      background: rgba(13,15,26,0.94) !important;
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(201,168,76,0.13);
+      background: rgba(247,243,238,0.96) !important;
+      backdrop-filter: blur(12px);
+      border-bottom-color: var(--ember);
     }
+
+    /* BUTTONS */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--ember); color: #fff;
+      font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 0.875rem;
+      padding: 0.75rem 1.625rem; border-radius: 6px; border: 2px solid var(--ember);
+      text-decoration: none; cursor: pointer; position: relative; overflow: hidden; transition: color 0.25s;
+    }
+    .btn-primary::before { content:''; position:absolute; inset:0; background:#a03a10; transform:scaleX(0); transform-origin:left; transition:transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+    .btn-primary:hover::before { transform:scaleX(1); }
+    .btn-primary > span, .btn-primary > svg { position:relative; z-index:1; }
+    .btn-primary:focus-visible { outline:2px solid var(--ember); outline-offset:3px; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--ember);
+      font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 0.875rem;
+      padding: 0.75rem 1.625rem; border-radius: 6px; border: 2px solid var(--ember);
+      text-decoration: none; cursor: pointer; position: relative; overflow: hidden; transition: color 0.25s;
+    }
+    .btn-outline::before { content:''; position:absolute; inset:0; background:var(--ember); transform:scaleX(0); transform-origin:left; transition:transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+    .btn-outline:hover { color:#fff; }
+    .btn-outline:hover::before { transform:scaleX(1); }
+    .btn-outline > span, .btn-outline > svg { position:relative; z-index:1; }
+    .btn-outline:focus-visible { outline:2px solid var(--ember); outline-offset:3px; }
+
+    /* SECTION MARKER */
+    .section-mark {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.08em; color: var(--ember); text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .section-mark::after { content:''; flex:1; max-width:80px; height:1px; background:var(--ember); opacity:0.5; }
+
+    /* DIVIDER */
+    .rule { height: 1px; background: var(--ink-muted); }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0; transform: translateX(-22px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.in-view { opacity: 1; transform: translateX(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0);    }
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .a1 { animation: fadeUp   0.85s cubic-bezier(0.16,1,0.3,1) 0.05s both; }
-    .a2 { animation: fadeUp   0.85s cubic-bezier(0.16,1,0.3,1) 0.20s both; }
-    .a3 { animation: fadeUp   0.85s cubic-bezier(0.16,1,0.3,1) 0.35s both; }
-    .a4 { animation: fadeUp   0.85s cubic-bezier(0.16,1,0.3,1) 0.50s both; }
+    .a1 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.05s both; }
+    .a2 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s  both; }
+    .a3 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.35s both; }
+    .a4 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s  both; }
 
-    .card {
-      background: #141628; border: 1px solid rgba(201,168,76,0.12);
-      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, box-shadow 0.3s;
+    /* TIER CARDS */
+    .tier-card {
+      background: rgba(247,243,238,0.06);
+      border: 1px solid rgba(247,243,238,0.1);
+      border-radius: 8px; padding: 2rem;
+      transition: border-color 0.3s;
     }
-    .card:hover {
-      transform: translateY(-5px); border-color: rgba(201,168,76,0.35);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 0 40px rgba(201,168,76,0.06);
+    .tier-card:hover { border-color: rgba(247,243,238,0.25); }
+    .tier-card.featured {
+      border-top: 4px solid var(--ember);
+      background: rgba(201,79,27,0.06);
     }
+    .tier-card.featured:hover { border-color: var(--ember); }
 
-    .tag {
-      font-family: 'Outfit', sans-serif; font-size: 0.67rem;
-      letter-spacing: 0.2em; text-transform: uppercase; color: #C9A84C;
-    }
-
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.38), transparent); }
-
-    .icon-box {
-      width: 48px; height: 48px; border-radius: 0.75rem; flex-shrink: 0;
-      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    .tier-badge {
-      display: inline-block; font-size: 0.7rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: #C9A84C; font-weight: 600;
-      border: 1px solid rgba(201,168,76,0.4); border-radius: 50px;
-      padding: 0.4rem 0.8rem; margin-bottom: 1rem;
-    }
-
-    /* Form Styling */
-    .form-group { margin-bottom: 1.5rem; }
+    /* FORM */
     .form-label {
-      display: block; font-size: 0.9rem; font-weight: 500; color: #F0EDE8;
-      margin-bottom: 0.5rem;
+      display: block; font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 0.5rem; font-weight: 500;
     }
     .form-input, .form-select {
-      width: 100%; padding: 0.85rem 1rem; border-radius: 0.75rem;
-      border: 1px solid rgba(201,168,76,0.25); background: #141628;
-      color: #F0EDE8; font-family: 'Outfit', sans-serif;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%; padding: 0.7rem 0;
+      border: none; border-bottom: 1.5px solid rgba(19,18,16,0.2);
+      background: transparent; color: var(--ink);
+      font-family: 'Bricolage Grotesque', sans-serif; font-size: 0.95rem;
+      outline: none; transition: border-color 0.2s;
     }
-    .form-input:focus, .form-select:focus {
-      outline: none; border-color: #C9A84C;
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
-    }
-    .form-input::placeholder { color: #7A7A8C; }
+    .form-input:focus, .form-select:focus { border-bottom-color: var(--ember); }
+    .form-input::placeholder { color: rgba(19,18,16,0.3); }
+    .form-select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+    .form-group { margin-bottom: 1.75rem; }
 
-    /* Watermark number — positioned absolute inside card */
-    .num-watermark {
-      position: absolute; bottom: -0.5rem; right: 1rem;
-      font-family: 'Playfair Display', serif; font-size: 7rem;
-      font-weight: 700; color: #C9A84C; opacity: 0.045;
-      line-height: 1; pointer-events: none; user-select: none;
-    }
-
-    /* Pull quote editorial style */
-    .pull-quote {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.6;
-      color: #F0EDE8; border-left: 3px solid #C9A84C; padding-left: 1.5rem;
+    /* QUOTE MARK */
+    .quote-mark {
+      font-family: 'IBM Plex Mono', monospace; font-size: 6rem; line-height: 1;
+      color: var(--ember); opacity: 0.5; display: block;
+      margin-bottom: -2rem; margin-left: -0.5rem;
     }
 
-    /* Stat display — large number + label */
-    .stat-display-num {
-      font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3rem);
-      font-weight: 700; color: #C9A84C; line-height: 1; letter-spacing: -0.02em;
-    }
-    .stat-display-label {
-      font-family: 'Outfit', sans-serif; font-size: 0.82rem;
-      color: #7A7A8C; margin-top: 0.35rem;
-    }
-
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #0D0F1A; }
-    ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.22); border-radius: 3px; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--paper); }
+    ::-webkit-scrollbar-thumb { background: rgba(201,79,27,0.3); border-radius: 2px; }
   </style>
 </head>
 <body>
 
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- ===== NAV ===== -->
-  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5">
+  <!-- NAV -->
+  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2.5 group" style="text-decoration:none">
-        <span class="font-display text-xl text-[#F0EDE8] tracking-tight" style="transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#F0EDE8'">Surendra Singh</span>
-        <span class="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" aria-hidden="true"></span>
+      <a href="index.html" style="text-decoration:none">
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);letter-spacing:-0.02em;transition:color 0.2s"
+          onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink)'">Surendra Singh</span>
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="get-insurance.html" class="text-sm text-[#7A7A8C] hover:text-[#F0EDE8] tracking-wide" style="text-decoration:none;transition:color 0.2s;font-family:'Outfit',sans-serif">Get Insurance</a>
-        <a href="earn-with-insurance.html" class="text-sm text-[#F0EDE8] font-medium tracking-wide" style="text-decoration:none;font-family:'Outfit',sans-serif">Become an Agent</a>
-        <a href="index.html" class="btn-ghost text-sm px-5 py-2.5" style="text-decoration:none">Back Home</a>
+        <a href="get-insurance.html" style="font-size:0.875rem;color:var(--ink-soft);text-decoration:none;transition:color 0.2s;font-family:'Bricolage Grotesque',sans-serif;font-weight:500"
+          onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink-soft)'">Get Insurance</a>
+        <a href="earn-with-insurance.html" style="font-size:0.875rem;color:var(--ember);text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:600">Become an Agent</a>
+        <a href="index.html" class="btn-outline" style="text-decoration:none;padding:0.6rem 1.25rem">
+          <span>Back Home</span>
+        </a>
       </div>
-      <button id="menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false" style="color:#F0EDE8;background:none;border:none;cursor:pointer;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#F0EDE8'">
-        <svg id="icon-open"  width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="2" y1="6"  x2="22" y2="6" /><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="18" x2="22" y2="18"/></svg>
+      <button id="menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false"
+        style="color:var(--ink);background:none;border:none;cursor:pointer;transition:color 0.2s"
+        onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink)'">
+        <svg id="icon-open" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="2" y1="6" x2="22" y2="6"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="18" x2="22" y2="18"/></svg>
         <svg id="icon-close" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" class="hidden"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden px-0 pt-6 pb-5 mt-4 border-t" style="border-color:rgba(201,168,76,0.12)">
+    <div id="mobile-menu" class="hidden md:hidden px-0 pt-5 pb-4 mt-3 border-t" style="border-color:var(--ink-muted)">
       <div class="flex flex-col gap-5">
-        <a href="get-insurance.html" class="text-[#F0EDE8] text-lg" style="text-decoration:none;font-family:'Outfit',sans-serif">Get Insurance</a>
-        <a href="earn-with-insurance.html" class="text-[#F0EDE8] text-lg font-medium" style="text-decoration:none;font-family:'Outfit',sans-serif">Become an Agent</a>
-        <a href="index.html" class="btn-ghost text-sm px-5 py-3 mt-1 justify-center" style="text-decoration:none">Back Home</a>
+        <a href="get-insurance.html" style="font-size:1.05rem;color:var(--ink);text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:500">Get Insurance</a>
+        <a href="earn-with-insurance.html" style="font-size:1.05rem;color:var(--ember);text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:600">Become an Agent</a>
+        <a href="index.html" class="btn-outline" style="text-decoration:none;justify-content:center">
+          <span>Back Home</span>
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <section class="relative min-h-screen flex items-center pt-28 pb-20 px-6 md:px-12 overflow-hidden">
-    <div aria-hidden="true" style="position:absolute;top:-200px;left:-250px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.09) 0%,transparent 70%);pointer-events:none"></div>
-    <div aria-hidden="true" style="position:absolute;bottom:-150px;right:-120px;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.06) 0%,transparent 70%);pointer-events:none"></div>
+    <!-- ₹ background symbol -->
+    <div aria-hidden="true" style="
+      position:absolute; top:50%; right:2%; transform:translateY(-50%);
+      font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+      font-size:clamp(16rem,28vw,26rem); line-height:1; color:var(--ember);
+      opacity:0.07; pointer-events:none; user-select:none; z-index:0;">₹</div>
 
-    <div class="max-w-4xl mx-auto w-full text-center">
-      <div class="tag a1 mb-5 justify-center flex">For Aspiring Agents</div>
-      <h1 class="font-display a2" style="font-size:clamp(2.4rem,5vw,4rem);line-height:1.1;letter-spacing:-0.025em;color:#F0EDE8;margin-bottom:1.5rem">
-        Build a Career That<br>
-        Pays You What<br>
-        <em style="color:#C9A84C;font-style:italic">You're Worth.</em>
+    <div class="max-w-5xl w-full relative z-10">
+      <div class="section-mark a1">§00 — महत्वाकांक्षी एजेंटों के लिए</div>
+      <h1 class="font-hindi a2" style="font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:var(--ink);margin-bottom:1.5rem;max-width:820px">
+        एक ऐसा करियर बनाएं<br>
+        जो आपकी मेहनत की<br>
+        <span style="color:var(--ember)">कीमत</span> दे।
       </h1>
-      <p class="a3 mx-auto mb-10" style="color:#7A7A8C;font-size:1.05rem;line-height:1.8;max-width:560px">
-        Most jobs cap your income. Insurance doesn't. Join Bajaj Life Insurance under direct mentorship and earn based on effort — not someone else's ceiling.
+      <p class="font-hindi a3" style="color:var(--ink-soft);font-size:1.05rem;line-height:1.85;max-width:540px;margin-bottom:2.5rem;font-weight:400">
+        ज़्यादातर नौकरियाँ आपकी आय को सीमित करती हैं। बीमा नहीं। सीधी मेंटरशिप में Bajaj Life Insurance से जुड़ें।
       </p>
-      <div class="a4 flex flex-wrap gap-4 justify-center">
-        <a href="#form" class="btn-gold px-7 py-3.5 text-sm" style="text-decoration:none">
-          Apply Now
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      <div class="a4 flex flex-wrap gap-3">
+        <a href="#form" class="btn-primary" style="text-decoration:none">
+          <span>Apply Now</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="position:relative;z-index:1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="https://wa.me/919709730079?text=Hi%20Surendra%2C%20I%27m%20interested%20in%20becoming%20an%20insurance%20agent" target="_blank" rel="noopener noreferrer" class="btn-ghost px-7 py-3.5 text-sm" style="text-decoration:none">
-          Chat on WhatsApp
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <a href="https://wa.me/919709730079?text=Hi%20Surendra%2C%20I%27m%20interested%20in%20becoming%20an%20insurance%20agent" target="_blank" rel="noopener noreferrer" class="btn-outline" style="text-decoration:none">
+          <span>Chat on WhatsApp</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="position:relative;z-index:1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== WHAT YOU GET ===== -->
-  <section class="py-24 px-6 md:px-12">
+  <!-- WHAT YOU GET -->
+  <section class="py-24 px-6 md:px-12" style="border-top:1px solid var(--ink-muted)">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <div class="tag mb-4 justify-center flex">Your Foundation</div>
-        <h2 class="font-display text-[#F0EDE8]" style="font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.02em">What You Get</h2>
+      <div class="mb-14 reveal">
+        <div class="section-mark">§01 — Your Foundation</div>
+        <h2 class="font-hindi" style="font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--ink);letter-spacing:-0.01em">
+          आपको क्या मिलता है
+        </h2>
       </div>
 
-      <div class="grid md:grid-cols-4 gap-8 md:gap-0">
-        <!-- Mentorship -->
-        <div class="md:pr-8 md:border-r md:border-r-[rgba(201,168,76,0.2)]">
-          <div class="stat-display-num">01</div>
-          <div style="height:2px;background:rgba(201,168,76,0.4);margin:1rem 0 1.5rem 0;width:2rem"></div>
-          <h3 class="font-display text-[#F0EDE8] mb-2" style="font-size:1.15rem;letter-spacing:-0.01em">Direct Mentorship</h3>
-          <p style="color:#7A7A8C;font-size:0.9rem;line-height:1.75">
-            Trained by Surendra Singh, who has personally mentored insurance agents for 10+ years.
+      <div class="grid md:grid-cols-4 gap-0">
+        <div class="md:pr-8 reveal reveal-d1" style="border-right:1px solid var(--ink-muted);padding-bottom:2rem;margin-bottom:2rem md:mb-0">
+          <div class="font-mono" style="font-size:0.7rem;letter-spacing:0.12em;color:var(--ember);margin-bottom:0.75rem">01</div>
+          <div style="width:32px;height:2.5px;background:var(--ember);margin-bottom:1.25rem"></div>
+          <h3 style="font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;color:var(--ink);margin-bottom:0.6rem">Direct Mentorship</h3>
+          <p class="font-hindi" style="color:var(--ink-soft);font-size:0.88rem;line-height:1.8;font-weight:400">
+            सुरेंद्र सिंह द्वारा सीधे प्रशिक्षित — जिन्होंने 10+ साल से बीमा एजेंटों को व्यक्तिगत रूप से मार्गदर्शन दिया है।
           </p>
         </div>
-
-        <!-- Training -->
-        <div class="md:px-8 md:border-r md:border-r-[rgba(201,168,76,0.2)]">
-          <div class="stat-display-num">02</div>
-          <div style="height:2px;background:rgba(201,168,76,0.4);margin:1rem 0 1.5rem 0;width:2rem"></div>
-          <h3 class="font-display text-[#F0EDE8] mb-2" style="font-size:1.15rem;letter-spacing:-0.01em">Structured Training</h3>
-          <p style="color:#7A7A8C;font-size:0.9rem;line-height:1.75">
-            From product knowledge to sales skills. Ready to earn from day one.
+        <div class="md:px-8 reveal reveal-d2" style="border-right:1px solid var(--ink-muted)">
+          <div class="font-mono" style="font-size:0.7rem;letter-spacing:0.12em;color:var(--ember);margin-bottom:0.75rem">02</div>
+          <div style="width:32px;height:2.5px;background:var(--ember);margin-bottom:1.25rem"></div>
+          <h3 style="font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;color:var(--ink);margin-bottom:0.6rem">Structured Training</h3>
+          <p class="font-hindi" style="color:var(--ink-soft);font-size:0.88rem;line-height:1.8;font-weight:400">
+            प्रोडक्ट ज्ञान से लेकर बिक्री कौशल तक। पहले दिन से कमाई के लिए तैयार।
           </p>
         </div>
-
-        <!-- Flexibility -->
-        <div class="md:px-8 md:border-r md:border-r-[rgba(201,168,76,0.2)]">
-          <div class="stat-display-num">03</div>
-          <div style="height:2px;background:rgba(201,168,76,0.4);margin:1rem 0 1.5rem 0;width:2rem"></div>
-          <h3 class="font-display text-[#F0EDE8] mb-2" style="font-size:1.15rem;letter-spacing:-0.01em">Flexible Schedule</h3>
-          <p style="color:#7A7A8C;font-size:0.9rem;line-height:1.75">
-            Work full-time or part-time. Fits around your life, not the other way.
+        <div class="md:px-8 reveal reveal-d3" style="border-right:1px solid var(--ink-muted)">
+          <div class="font-mono" style="font-size:0.7rem;letter-spacing:0.12em;color:var(--ember);margin-bottom:0.75rem">03</div>
+          <div style="width:32px;height:2.5px;background:var(--ember);margin-bottom:1.25rem"></div>
+          <h3 style="font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;color:var(--ink);margin-bottom:0.6rem">Flexible Schedule</h3>
+          <p class="font-hindi" style="color:var(--ink-soft);font-size:0.88rem;line-height:1.8;font-weight:400">
+            पूर्णकालिक या अंशकालिक काम करें। आपके जीवन के अनुसार, न कि विपरीत।
           </p>
         </div>
-
-        <!-- Backing -->
-        <div class="md:pl-8">
-          <div class="stat-display-num">04</div>
-          <div style="height:2px;background:rgba(201,168,76,0.4);margin:1rem 0 1.5rem 0;width:2rem"></div>
-          <h3 class="font-display text-[#F0EDE8] mb-2" style="font-size:1.15rem;letter-spacing:-0.01em">Bajaj Life Backing</h3>
-          <p style="color:#7A7A8C;font-size:0.9rem;line-height:1.75">
-            Work under India's most established life insurance brands.
+        <div class="md:pl-8 reveal reveal-d4">
+          <div class="font-mono" style="font-size:0.7rem;letter-spacing:0.12em;color:var(--ember);margin-bottom:0.75rem">04</div>
+          <div style="width:32px;height:2.5px;background:var(--ember);margin-bottom:1.25rem"></div>
+          <h3 style="font-weight:700;font-size:1.1rem;letter-spacing:-0.01em;color:var(--ink);margin-bottom:0.6rem">Bajaj Life Backing</h3>
+          <p class="font-hindi" style="color:var(--ink-soft);font-size:0.88rem;line-height:1.8;font-weight:400">
+            भारत के सबसे स्थापित जीवन बीमा ब्रांड के तहत काम करें।
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== EARNING POTENTIAL ===== -->
-  <section class="py-24 px-6 md:px-12" style="border-top:1px solid rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.08)">
+  <!-- EARNING TIERS — dark section -->
+  <section style="background:var(--dark-bg)" class="py-24 px-6 md:px-12">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <div class="tag mb-4 justify-center flex">No BS, Just Facts</div>
-        <h2 class="font-display text-[#F0EDE8] mb-6" style="font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.02em">What Can You Actually Earn?</h2>
-        <p style="color:#7A7A8C;font-size:0.95rem;line-height:1.8;max-width:600px;margin-left:auto;margin-right:auto">
-          Our agents typically earn <strong style="color:#C9A84C">₹15,000 – ₹80,000/month</strong>. Your income grows with your client base — there's no fixed cap and no fixed promise. What you put in is what you get out.
+      <div class="mb-12 reveal">
+        <div class="section-mark" style="color:rgba(247,243,238,0.4)">§02 — No BS, Just Facts</div>
+        <h2 class="font-hindi" style="font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--dark-text);letter-spacing:-0.01em;margin-bottom:1rem">
+          आप वास्तव में कितना कमा सकते हैं?
+        </h2>
+        <p class="font-hindi reveal" style="color:rgba(247,243,238,0.5);font-size:0.95rem;line-height:1.85;max-width:600px;font-weight:400">
+          हमारे एजेंट आमतौर पर <strong style="color:var(--ember)">₹15,000 – ₹80,000/माह</strong> कमाते हैं। आय आपके क्लाइंट बेस के साथ बढ़ती है।
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 mb-8">
+      <div class="grid md:grid-cols-3 gap-5 mb-8">
         <!-- Tier 1 -->
-        <div class="card rounded-2xl p-8" style="background:#141628;border:1px solid rgba(201,168,76,0.12);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),border-color 0.3s,box-shadow 0.3s" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='rgba(201,168,76,0.35)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.45),0 0 40px rgba(201,168,76,0.06)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(201,168,76,0.12)';this.style.boxShadow='none'">
-          <div class="font-display text-[#C9A84C]" style="font-size:2.5rem;font-weight:700;letter-spacing:-0.02em;line-height:1">₹15K–25K</div>
-          <div style="color:#7A7A8C;font-size:0.82rem;margin-bottom:1.5rem">Per Month</div>
-          <div style="color:#7A7A8C;font-size:0.88rem;line-height:1.8">
-            <p style="margin-bottom:0.75rem">First 0–3 months in the game.</p>
-            <p style="margin-bottom:0.75rem">Part-time effort, building your foundation.</p>
-            <p>Usually 5–10 clients per month.</p>
+        <div class="tier-card reveal reveal-d1">
+          <div class="font-mono" style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:500;line-height:1;color:var(--ember)">₹15K–25K</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:rgba(247,243,238,0.35);margin-bottom:1.5rem;margin-top:0.25rem;letter-spacing:0.08em">PER MONTH</div>
+          <div class="font-hindi" style="color:rgba(247,243,238,0.5);font-size:0.87rem;line-height:1.85;font-weight:400">
+            <p style="margin-bottom:0.6rem">शुरुआती 0–3 महीने।</p>
+            <p style="margin-bottom:0.6rem">अंशकालिक प्रयास, नींव बना रहे हैं।</p>
+            <p>आमतौर पर प्रति माह 5–10 क्लाइंट।</p>
           </div>
         </div>
 
-        <!-- Tier 2 (Active Agent) - FEATURED -->
-        <div class="card rounded-2xl p-8" style="background:rgba(201,168,76,0.03);border:1.5px solid rgba(201,168,76,0.6);position:relative;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),border-color 0.3s,box-shadow 0.3s" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='#C9A84C';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.45),0 0 60px rgba(201,168,76,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(201,168,76,0.6)';this.style.boxShadow='none'">
-          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);background:#0D0F1A;padding:0.4rem 1rem;border-radius:0 0 8px 8px;border:1.5px solid rgba(201,168,76,0.6);border-top:none;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#C9A84C;font-weight:600">Most Common</div>
-          <div class="font-display text-[#C9A84C]" style="font-size:2.5rem;font-weight:700;letter-spacing:-0.02em;line-height:1;margin-top:1.75rem">₹30K–60K</div>
-          <div style="color:#7A7A8C;font-size:0.82rem;margin-bottom:1.5rem">Per Month</div>
-          <div style="color:#7A7A8C;font-size:0.88rem;line-height:1.8">
-            <p style="margin-bottom:0.75rem">6+ months in, consistent effort.</p>
-            <p style="margin-bottom:0.75rem">Your momentum is real now.</p>
-            <p>Usually 20–40 clients per month.</p>
+        <!-- Tier 2 — FEATURED -->
+        <div class="tier-card featured reveal reveal-d2" style="position:relative">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);background:var(--ember);padding:0.3rem 0.9rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#fff;font-weight:500;white-space:nowrap">Most Common</div>
+          <div class="font-mono" style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:500;line-height:1;color:var(--ember);margin-top:1.5rem">₹30K–60K</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:rgba(247,243,238,0.35);margin-bottom:1.5rem;margin-top:0.25rem;letter-spacing:0.08em">PER MONTH</div>
+          <div class="font-hindi" style="color:rgba(247,243,238,0.5);font-size:0.87rem;line-height:1.85;font-weight:400">
+            <p style="margin-bottom:0.6rem">6+ महीने, लगातार प्रयास।</p>
+            <p style="margin-bottom:0.6rem">आपकी गति अब वास्तविक है।</p>
+            <p>आमतौर पर 20–40 क्लाइंट प्रति माह।</p>
           </div>
         </div>
 
         <!-- Tier 3 -->
-        <div class="card rounded-2xl p-8" style="background:#141628;border:1px solid rgba(201,168,76,0.12);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),border-color 0.3s,box-shadow 0.3s" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='rgba(201,168,76,0.35)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.45),0 0 40px rgba(201,168,76,0.06)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(201,168,76,0.12)';this.style.boxShadow='none'">
-          <div class="font-display text-[#C9A84C]" style="font-size:2.5rem;font-weight:700;letter-spacing:-0.02em;line-height:1">₹60K–1L+</div>
-          <div style="color:#7A7A8C;font-size:0.82rem;margin-bottom:1.5rem">Per Month</div>
-          <div style="color:#7A7A8C;font-size:0.88rem;line-height:1.8">
-            <p style="margin-bottom:0.75rem">1+ year experience, strong track record.</p>
-            <p style="margin-bottom:0.75rem">Renewals and referrals compound.</p>
-            <p>No income ceiling. You decide your limit.</p>
+        <div class="tier-card reveal reveal-d3">
+          <div class="font-mono" style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:500;line-height:1;color:var(--ember)">₹60K–1L+</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:rgba(247,243,238,0.35);margin-bottom:1.5rem;margin-top:0.25rem;letter-spacing:0.08em">PER MONTH</div>
+          <div class="font-hindi" style="color:rgba(247,243,238,0.5);font-size:0.87rem;line-height:1.85;font-weight:400">
+            <p style="margin-bottom:0.6rem">1+ साल का अनुभव, मजबूत ट्रैक रिकॉर्ड।</p>
+            <p style="margin-bottom:0.6rem">नवीनीकरण और रेफरल compound होते हैं।</p>
+            <p>कोई आय सीमा नहीं।</p>
           </div>
         </div>
       </div>
 
-      <div class="text-center" style="padding-top:1rem;padding-bottom:2rem;border-top:1px solid rgba(201,168,76,0.1)">
-        <p style="color:#7A7A8C;font-size:0.84rem;font-style:italic">
-          Earnings vary by effort, skill, and market conditions. These are real numbers from our active agents.
-        </p>
-      </div>
+      <p class="font-hindi reveal" style="color:rgba(247,243,238,0.3);font-size:0.82rem;font-style:italic;padding-top:1rem;border-top:1px solid rgba(247,243,238,0.08);font-weight:400">
+        आय प्रयास, कौशल और बाज़ार की स्थितियों के अनुसार भिन्न होती है। ये हमारे सक्रिय एजेंटों के वास्तविक आंकड़े हैं।
+      </p>
     </div>
   </section>
 
-  <!-- ===== FORM ===== -->
+  <!-- FORM -->
   <section id="form" class="py-24 px-6 md:px-12">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16 md:text-left md:hidden">
-        <div class="tag mb-4 flex md:justify-start">Ready to Apply?</div>
-        <h2 class="font-display text-[#F0EDE8] mb-4" style="font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.02em">Start Your Journey</h2>
-        <p style="color:#7A7A8C;font-size:0.92rem;line-height:1.8">Three minutes to fill this in. A conversation that could change your trajectory.</p>
-      </div>
-
       <div class="grid md:grid-cols-5 gap-12 items-start">
-        <!-- Left: Persuasion Content (42% on desktop, hidden on mobile) -->
-        <div class="hidden md:block md:col-span-2 md:pr-8 md:border-r md:border-r-[rgba(201,168,76,0.2)]">
-          <div class="tag mb-6 flex">Ready to Apply?</div>
-          <div class="pull-quote mb-8">
-            "Three minutes to fill this in. A conversation that could change your trajectory."
-          </div>
 
-          <div class="space-y-6">
-            <div>
-              <p style="color:#F0EDE8;font-size:0.95rem;font-weight:500;margin-bottom:0.5rem">10+ years mentoring agents</p>
-              <p style="color:#7A7A8C;font-size:0.82rem;line-height:1.7">Proven track record of training people like you.</p>
+        <!-- Left: Persuasion (2/5) -->
+        <div class="hidden md:block md:col-span-2">
+          <div class="section-mark reveal">§03 — Ready to Apply?</div>
+          <span class="quote-mark reveal">"</span>
+          <blockquote class="font-hindi reveal" style="font-size:clamp(1.2rem,2vw,1.5rem);font-weight:600;line-height:1.65;color:var(--ink)">
+            तीन मिनट यह भरने में। एक बातचीत जो आपकी दिशा बदल सकती है।
+          </blockquote>
+
+          <div class="space-y-5 mt-8">
+            <div class="reveal reveal-d1">
+              <p style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.3rem">10+ साल की मेंटरशिप</p>
+              <p class="font-hindi" style="color:var(--ink-soft);font-size:0.82rem;line-height:1.7;font-weight:400">आप जैसे लोगों को प्रशिक्षित करने का सिद्ध ट्रैक रिकॉर्ड।</p>
             </div>
-
-            <div>
-              <p style="color:#F0EDE8;font-size:0.95rem;font-weight:500;margin-bottom:0.5rem">Bajaj Life Insurance certified</p>
-              <p style="color:#7A7A8C;font-size:0.82rem;line-height:1.7">You get credibility from the start.</p>
+            <div class="reveal reveal-d2">
+              <p style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.3rem">Bajaj Life Insurance certified</p>
+              <p class="font-hindi" style="color:var(--ink-soft);font-size:0.82rem;line-height:1.7;font-weight:400">शुरू से ही आपको विश्वसनीयता मिलती है।</p>
             </div>
-
-            <div>
-              <p style="color:#F0EDE8;font-size:0.95rem;font-weight:500;margin-bottom:0.5rem">Direct, personal follow-up</p>
-              <p style="color:#7A7A8C;font-size:0.82rem;line-height:1.7">Not a team, not a system. Just Surendra.</p>
+            <div class="reveal reveal-d3">
+              <p style="font-weight:600;font-size:0.92rem;color:var(--ink);margin-bottom:0.3rem">Direct, personal follow-up</p>
+              <p class="font-hindi" style="color:var(--ink-soft);font-size:0.82rem;line-height:1.7;font-weight:400">कोई टीम नहीं, कोई सिस्टम नहीं। सिर्फ़ सुरेंद्र।</p>
             </div>
           </div>
         </div>
 
-        <!-- Right: Form (58% on desktop) -->
+        <!-- Right: Form (3/5) -->
         <div class="md:col-span-3">
-          <form id="agent-form" class="card rounded-2xl p-8 md:p-10" style="background:#141628;border:1px solid rgba(201,168,76,0.12);position:relative;overflow:hidden">
-            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(201,168,76,0.3),rgba(201,168,76,0.6),rgba(201,168,76,0.3))"></div>
+          <div style="background:var(--white);border:1px solid var(--ink-muted);border-radius:8px;padding:2.5rem;position:relative;overflow:hidden">
+            <!-- ember top rule -->
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--ember)"></div>
 
             <div style="margin-top:0.5rem">
-              <div class="form-group">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required />
-              </div>
+              <h2 style="font-weight:700;font-size:1.5rem;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.4rem">Start Your Journey</h2>
+              <p class="font-hindi" style="color:var(--ink-soft);font-size:0.88rem;margin-bottom:2rem;font-weight:400">तीन मिनट में भरें। एक बातचीत जो बहुत कुछ बदल सकती है।</p>
 
-              <div class="form-group">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-input" placeholder="Your phone number" required />
-              </div>
-
-              <div class="form-group">
-                <label for="city" class="form-label">City</label>
-                <input type="text" id="city" name="city" class="form-input" placeholder="Your city" required />
-              </div>
-
-              <div class="form-group">
-                <label for="employment" class="form-label">Current Employment Status</label>
-                <select id="employment" name="employment" class="form-select" required>
-                  <option value="">Select an option</option>
-                  <option value="employed">Currently Employed (Full-Time)</option>
-                  <option value="self-employed">Self-Employed</option>
-                  <option value="unemployed">Not Currently Employed</option>
-                  <option value="student">Student</option>
-                  <option value="homemaker">Homemaker</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <button type="submit" class="btn-gold w-full py-3 text-base justify-center mt-6" style="cursor:pointer">
-                Send My Application
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </button>
+              <form id="agent-form">
+                <div class="form-group">
+                  <label for="name" class="form-label">पूरा नाम</label>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="form-label">फ़ोन नंबर</label>
+                  <input type="tel" id="phone" name="phone" class="form-input" placeholder="Your phone number" required />
+                </div>
+                <div class="form-group">
+                  <label for="city" class="form-label">शहर</label>
+                  <input type="text" id="city" name="city" class="form-input" placeholder="Your city" required />
+                </div>
+                <div class="form-group">
+                  <label for="employment" class="form-label">वर्तमान रोज़गार स्थिति</label>
+                  <select id="employment" name="employment" class="form-select" required>
+                    <option value="">Select an option</option>
+                    <option value="employed">Currently Employed (Full-Time)</option>
+                    <option value="self-employed">Self-Employed</option>
+                    <option value="unemployed">Not Currently Employed</option>
+                    <option value="student">Student</option>
+                    <option value="homemaker">Homemaker</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn-primary w-full justify-center mt-2" style="cursor:pointer;padding:0.9rem">
+                  <span>Send My Application</span>
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="position:relative;z-index:1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </form>
             </div>
-          </form>
-        </div>
-      </div>
+          </div>
 
-      <div class="text-center mt-10">
-        <p style="color:#7A7A8C;font-size:0.9rem;margin-bottom:1.5rem">Prefer WhatsApp?</p>
-        <a href="https://wa.me/919709730079?text=Hi%20Surendra%2C%20I%27m%20interested%20in%20becoming%20an%20insurance%20agent" target="_blank" rel="noopener noreferrer" class="btn-ghost px-6 py-3 text-sm" style="text-decoration:none">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-          Chat Directly
-        </a>
+          <div class="text-center mt-8">
+            <p class="font-hindi" style="color:var(--ink-soft);font-size:0.88rem;margin-bottom:1rem;font-weight:400">WhatsApp पर बात करना पसंद करते हैं?</p>
+            <a href="https://wa.me/919709730079?text=Hi%20Surendra%2C%20I%27m%20interested%20in%20becoming%20an%20insurance%20agent" target="_blank" rel="noopener noreferrer" class="btn-outline" style="text-decoration:none">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="position:relative;z-index:1"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              <span>Chat Directly</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer style="border-top:1px solid rgba(201,168,76,0.12);background:#0D0F1A" class="py-14 px-6 md:px-12">
+  <!-- FOOTER -->
+  <footer style="background:var(--paper-alt);border-top:1px solid var(--ink-muted)" class="py-14 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-10 mb-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-10">
         <div>
-          <a href="index.html" class="flex items-center gap-2.5 mb-3" style="text-decoration:none">
-            <span class="font-display text-xl text-[#F0EDE8]">Surendra Singh</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" aria-hidden="true"></span>
+          <a href="index.html" style="text-decoration:none;display:block;margin-bottom:0.5rem">
+            <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink)">Surendra Singh</span>
           </a>
-          <p style="color:#7A7A8C;font-size:0.85rem">Insurance Advisor &amp; Agent Mentor</p>
+          <p class="font-hindi" style="color:var(--ink-soft);font-size:0.83rem;font-weight:400">बीमा सलाहकार और एजेंट मेंटर</p>
         </div>
         <div class="flex flex-wrap gap-3 justify-center">
-          <a href="tel:+919709730079" class="btn-ghost px-5 py-2.5 text-sm" style="text-decoration:none">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1.27h3a2 2 0 0 1 2 1.72c.13.85.33 1.68.6 2.5a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.81-.81a2 2 0 0 1 2.11-.45c.82.27 1.65.48 2.5.6a2 2 0 0 1 1.72 2.03z"/></svg>
-            Call
+          <a href="tel:+919709730079" class="btn-outline" style="text-decoration:none;padding:0.6rem 1.1rem;font-size:0.8rem">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1.27h3a2 2 0 0 1 2 1.72c.13.85.33 1.68.6 2.5a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l.81-.81a2 2 0 0 1 2.11-.45c.82.27 1.65.48 2.5.6a2 2 0 0 1 1.72 2.03z"/></svg>
+            <span>Call</span>
           </a>
-          <a href="mailto:sshia899@gmail.com" class="btn-ghost px-5 py-2.5 text-sm" style="text-decoration:none">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Email
+          <a href="mailto:sshia899@gmail.com" class="btn-outline" style="text-decoration:none;padding:0.6rem 1.1rem;font-size:0.8rem">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Email</span>
           </a>
-          <a href="https://wa.me/919709730079" target="_blank" rel="noopener noreferrer" class="btn-gold px-5 py-2.5 text-sm" style="text-decoration:none">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            WhatsApp
+          <a href="https://wa.me/919709730079" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration:none;padding:0.6rem 1.1rem;font-size:0.8rem">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="position:relative;z-index:1"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            <span>WhatsApp</span>
           </a>
         </div>
       </div>
-      <div class="divider my-8"></div>
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4" style="color:#7A7A8C;font-size:0.82rem">
+      <div class="rule my-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4" style="color:var(--ink-soft);font-size:0.8rem;font-family:'Bricolage Grotesque',sans-serif">
         <p>&copy; 2025 Surendra Singh. All rights reserved.</p>
         <div class="flex gap-6">
-          <a href="get-insurance.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#7A7A8C'">Get Insurance</a>
-          <a href="earn-with-insurance.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#7A7A8C'">Become an Agent</a>
-          <a href="index.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#7A7A8C'">Home</a>
+          <a href="get-insurance.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink-soft)'">Get Insurance</a>
+          <a href="earn-with-insurance.html" style="text-decoration:none;color:var(--ember)">Become an Agent</a>
+          <a href="index.html" style="text-decoration:none;color:inherit;transition:color 0.2s" onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--ink-soft)'">Home</a>
         </div>
       </div>
     </div>
@@ -438,28 +437,22 @@
 
   <script>
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
 
-    const btn  = document.getElementById('menu-btn');
+    const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    const iconOpen  = document.getElementById('icon-open');
+    const iconOpen = document.getElementById('icon-open');
     const iconClose = document.getElementById('icon-close');
     btn.addEventListener('click', () => {
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) {
-        menu.classList.add('hidden');
-        iconOpen.classList.remove('hidden');
-        iconClose.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-      } else {
-        menu.classList.remove('hidden');
-        iconOpen.classList.add('hidden');
-        iconClose.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-      }
+      const open = !menu.classList.contains('hidden');
+      if (open) { menu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
+      else { menu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
     });
+
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
     // Form submission
     const form = document.getElementById('agent-form');
@@ -470,10 +463,8 @@
       const city = document.getElementById('city').value;
       const employment = document.getElementById('employment').value;
       const subject = encodeURIComponent('Agent Application from ' + name);
-      const body = encodeURIComponent(
-        `Name: ${name}\nPhone: ${phone}\nCity: ${city}\nEmployment Status: ${employment}`
-      );
-      window.location.href = `mailto:sshia899@gmail.com?subject=${subject}&body=${body}`;
+      const body = encodeURIComponent('Name: ' + name + '\nPhone: ' + phone + '\nCity: ' + city + '\nEmployment Status: ' + employment);
+      window.location.href = 'mailto:sshia899@gmail.com?subject=' + subject + '&body=' + body;
     });
   </script>
 </body>
